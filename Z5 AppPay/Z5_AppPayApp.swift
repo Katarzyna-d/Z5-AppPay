@@ -3,18 +3,22 @@
 //  Z5 AppPay
 //
 //  Created by user225913 on 1/30/23.
-//
+//   https: //glitch.com/edit/#!/cyber-vast-cousin  <----
 
 import SwiftUI
+import Stripe
 
 @main
-struct Z5_AppPayApp: App {
-    let persistenceController = PersistenceController.shared
-
+struct FruitStoreApp: App {
+    
+    init() {
+        StripeAPI.defaultPublishableKey = "pk_test_51MW3aZCtuoLKl8oOfsytFu6He3AyJ9IO52c84BRFNCRNxbOSJx39CMuj8CBLnyjeqa2eEeFQhJDwUzSYTwpPVD0E00XxtlhADO"
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            ContentView().environmentObject(Cart())
         }
     }
 }
+
